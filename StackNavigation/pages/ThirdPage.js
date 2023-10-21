@@ -1,12 +1,16 @@
 import * as React from 'react';
 import { Button, View, Text, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Appbar } from 'react-native-paper';
 
 const HomePage = () => {
     const navigation = useNavigation();
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
+            <Appbar.Header>
+                <Appbar.Content title="ThirdPage" />
+            </Appbar.Header>
             <View style={{ flex: 1, padding: 16 }}>
                 <View
                     style={{
@@ -20,30 +24,19 @@ const HomePage = () => {
                             textAlign: 'center',
                             marginBottom: 16,
                         }}>
-                        Welcome to the Home Page
+                        Bienvenue sur la page d'accueil
                     </Text>
                     <Button
                         onPress={() => navigation.navigate('SecondPage')}
-                        title="Go to Second Page"
+                        title="Go to register page"
                     />
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <Button
-                        onPress={() => navigation.navigate('FirstPage')}
-                        title="Go to First Page"
-                    />
-                    <Button
-                        onPress={() => navigation.navigate('SecondPage')}
-                        title="Go to Second Page"
-                    />
-                </View>
-                <Text
-                    style={{
-                        fontSize: 18,
-                        textAlign: 'center',
-                        color: 'grey',
-                    }}>
-                    Navigate Between Screens using{'\n'}Custom Navigation
+                <Text style={{
+                    fontSize: 18,
+                    textAlign: 'center',
+                    color: 'grey',
+                }}>
+                    I just write something
                 </Text>
                 <Text
                     style={{
@@ -56,6 +49,6 @@ const HomePage = () => {
             </View>
         </SafeAreaView>
     );
-};
+}
 
 export default HomePage;

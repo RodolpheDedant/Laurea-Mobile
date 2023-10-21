@@ -9,11 +9,11 @@ const FirstPage = ({ navigation }) => {
     const handleLogin = () => {
         // Ici, vous pouvez ajouter la logique de connexion
         if (username === 'user' && password === 'mdp') {
-            // Connexion réussie, naviguez vers la page suivante
-            navigation.navigate('SecondPage');
+            // Connexion réussie, naviguez vers la page d'accueil (ThirdPage)
+            navigation.navigate('ThirdPage');
         } else {
             // Afficher un message d'erreur ou gérer l'authentification incorrecte
-            alert('Identifiants incorrects. Veuillez réessayer.');
+            alert('The username is "user" and the password is "mdp"');
         }
     };
 
@@ -35,7 +35,7 @@ const FirstPage = ({ navigation }) => {
                         Connexion
                     </Text>
                     <TextInput
-                        placeholder="Nom d'utilisateur"
+                        placeholder="Username"
                         value={username}
                         onChangeText={text => setUsername(text)}
                         style={{
@@ -45,7 +45,7 @@ const FirstPage = ({ navigation }) => {
                         }}
                     />
                     <TextInput
-                        placeholder="Mot de passe"
+                        placeholder="Password"
                         value={password}
                         onChangeText={text => setPassword(text)}
                         secureTextEntry={true}
@@ -57,29 +57,31 @@ const FirstPage = ({ navigation }) => {
                     />
                     <Button
                         onPress={handleLogin}
-                        title="Se connecter"
+                        title="Connexion"
+                    />
+                    <Button
+                        onPress={() => navigation.navigate('SecondPage')}
+                        title="Register"
                     />
                 </View>
                 <Text style={{
                     fontSize: 18,
                     textAlign: 'center',
-                    color: 'grey'
+                    color: 'grey',
                 }}>
-                    Navigate Between Screens using
-                    {'\n'}
-                    React Navigation
+                    Navigate Between Screens using{'\n'}React Navigation
                 </Text>
                 <Text
                     style={{
                         fontSize: 16,
                         textAlign: 'center',
-                        color: 'grey'
+                        color: 'grey',
                     }}>
                     www.aboutreact.com
                 </Text>
             </View>
         </SafeAreaView>
-    )
+    );
 }
 
 export default FirstPage;
